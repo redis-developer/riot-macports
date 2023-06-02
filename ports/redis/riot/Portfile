@@ -1,0 +1,57 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# Generated with JReleaser 1.7.0-SNAPSHOT at 2023-06-02T05:59:45.932074988Z
+
+PortSystem       1.0
+PortGroup        java 1.0
+
+name             riot
+version          3.0.1
+revision         0
+
+categories       redis tool
+license          Apache-2.0
+maintainers      @jruaux
+platforms        darwin
+supported_archs  noarch
+
+description      Get data in and out of Redis with RIOT
+long_description RIOT is a series of command-line utilities designed to help you get data in and out of Redis. \
+                  \
+                 It supports many different sources and targets: \
+                  - Relational databases \
+                  - Files (CSV, JSON, XML) \
+                  - Data generators (Redis data structures, Faker) \
+                  - and Redis itself with live and/or snapshot replication.
+
+homepage         https://github.com/redis-developer/riot
+
+master_sites     https://github.com/redis-developer/riot/releases/download/v${version}
+distname         ${name}-${version}
+use_zip          yes
+
+checksums        rmd160 ae4331600587032bc41d16fcb993c9a660b41dcc \
+                 sha256 d4cb2e81b564dd1a9970d0e95e34d1359480dc149e97577388105fd400bf2647 \
+                 size   73826544
+
+java.version     1.8+
+
+use_configure    no
+
+build {}
+
+destroot {
+    set target ${destroot}${prefix}/share/${name}
+
+    # Create the target directory
+    xinstall -m 755 -d ${target}
+
+    # Copy over the needed elements of our directory tree
+    copy {*}[glob -dir ${worksrcpath} *] ${target}
+
+    # Remove extraneous files
+    delete {*}[glob -directory ${target}/bin *.bat]
+
+    ln -s ../share/${name}/bin/riot ${destroot}${prefix}/bin/riot
+}
+
+livecheck.type   none
