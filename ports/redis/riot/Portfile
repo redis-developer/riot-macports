@@ -1,11 +1,11 @@
 # -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
-# Generated with JReleaser 1.8.0-SNAPSHOT at 2023-07-05T23:49:08.84095428Z
+# Generated with JReleaser 1.8.0-SNAPSHOT at 2023-07-11T08:23:56.551766451Z
 
 PortSystem       1.0
 PortGroup        java 1.0
 
 name             riot
-version          3.1.2
+version          3.1.3
 revision         0
 
 categories       redis tool
@@ -29,9 +29,9 @@ master_sites     https://github.com/redis-developer/riot/releases/download/v${ve
 distname         ${name}-${version}
 use_zip          yes
 
-checksums        rmd160 5ca90908ccd9ba7926733332350a444259f2cfc7 \
-                 sha256 2557e6d16662d626a133c887b5bc8e9560ad9dac9b969df13fca982dd5553ee5 \
-                 size   73641844
+checksums        rmd160 6d11aa781dc62a8a4798c1c5a9fb9037bfa1ff3d \
+                 sha256 ea140b8211620513e9932d96a6f6b1a6c67ca502bd81d7210d0632b70cde7c67 \
+                 size   73654083
 
 java.version     17+
 
